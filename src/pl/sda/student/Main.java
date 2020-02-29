@@ -21,10 +21,8 @@ public class Main {
         Student student1 = new Student("Piotr", "Nowak", 23);
         Student student2 = new Student("Krzysztof", "Piechota", 54);
         Student student3 = new Student("Jan", "Pietrucha", 78);
-        Student student4 = new Student("Kamil","Bulimia", 14);
+        Student student4 = new Student("Kamil", "Bulimia", 14);
         Student student5 = new Student("Tomasz", "Kwiatkowski", 26);
-
-
 
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -37,6 +35,13 @@ public class Main {
         studentList.add(student4);
         studentList.add(student5);
 
+        JSONUtils jsonUtils = new JSONUtils();
+        jsonUtils.writeList("lista.json", studentList);
+
+        jsonUtils.readList("lista.json");
+        System.out.println(" ");
+
+
 
         try {
             objectMapper.writeValue(new File("student.json"), student);
@@ -46,10 +51,6 @@ public class Main {
             objectMapper.writeValue(new File("student4.json"), student4);
             objectMapper.writeValue(new File("student5.json"), student5);
             objectMapper.writeValue(new File("studentLista.json"), studentList);
-
-
-
-
 
 
         } catch (IOException e) {
